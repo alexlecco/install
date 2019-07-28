@@ -45,5 +45,21 @@ export PATH=${PATH}:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_HO
 source /etc/profile
 ```
 -------------------------------------------------------------------------
+# Xcalib - invert colors in linux
+```bash
+sudo apt-get install xcalib xorg xserver-xorg-video-intel
+sudo nano /etc/X11/xorg.conf.d/20-intel.conf
+```
+write
+```bash
+Section "Device"
+  Identifier "Intel Graphics"
+  Driver "intel"
+EndSection
+```
+```bash
+sudo systemctl restart display-manager
+xcalib -invert -alter
+```
 -------------------------------------------------------------------------
 -------------------------------------------------------------------------
